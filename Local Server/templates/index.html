@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Search</title>
+</head>
+<body>
+    <h1>Comic Book Search</h1>
+    <form action="/" method="POST">
+        <input type="text" name="query"/>
+        <input type="submit" name="submit_query">
+    </form>
+    <h3>Results for {{ query }}</h3>
+    {% for i in results %}
+        <p>{{ i["title"] }}</p>
+        <img src="data:image/jpeg;charset=utf-8;base64, {{i["data"].decode("utf-8")}}" width="20%">
+    {% endfor %}
+</body>
+</html>
